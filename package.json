@@ -9,8 +9,8 @@
     "build": "strapi build",
     "strapi": "strapi"
   },
-  "devDependencies": {},
   "dependencies": {
+    "connection-string": "^4.3.2",
     "knex": "0.21.18",
     "sqlite3": "5.0.0",
     "strapi": "3.5.4",
