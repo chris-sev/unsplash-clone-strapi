@@ -1,9 +1,3 @@
-const { ConnectionString } = require("connection-string");
-
-if (!process.env.DATABASE_URL) throw new Error("Add a DATABASE_URL");
-
-const parsed = new ConnectionString(process.env.DATABASE_URL);
-
 module.exports = ({ env }) => ({
   defaultConnection: "default",
   connections: {
@@ -11,18 +5,16 @@ module.exports = ({ env }) => ({
       connector: "bookshelf",
       settings: {
         client: "postgres",
-        host: parsed.hostname,
-        port: parsed.port,
-        database: parsed.path?.[0],
-        user: parsed.user,
-        password: parsed.password,
+        host: env("DATABASE_HOST"),
+        port: env("DATABASE_PORT"),
+        database: env("DATABASE_NAME"),
+        username: env("DATABASE_USERNAME"),
+        password: env("DATABASE_PASSWORD"),
         ssl: {
-          rejectUnauthorized: env.bool("DATABASE_SSL_SELF", false), // For self-signed certificates
+          rejectUnauthorized: false,
         },
       },
-      options: {
-        ssl: env.bool("DATABASE_SSL", false),
-      },
+      options: {},
     },
   },
 });
