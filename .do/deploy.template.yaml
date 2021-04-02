@@ -3,28 +3,28 @@ spec:
   services:
     - name: strapi
       build_command: NODE_ENV=production npm run build
-      run_command: NODE_ENV=production npm run start
+      run_command: NODE_ENV=production npm start
       git:
         branch: master
         repo_clone_url: https://github.com/chris-on-code/unsplash-clone-strapi.git
       envs:
-      - key: DATABASE_URL
-        scope: RUN_AND_BUILD_TIME
-        value: ${db.DATABASE_URL}
-      - key: DATABASE_HOST
-        scope: RUN_AND_BUILD_TIME
-        value: ${db.HOSTNAME}
-      - key: DATABASE_PORT
-        scope: RUN_AND_BUILD_TIME
-        value: ${db.PORT}
-      - key: DATABASE_NAME
-        scope: RUN_AND_BUILD_TIME
-        value: ${db.DATABASE}
-      - key: DATABASE_USERNAME
-        scope: RUN_AND_BUILD_TIME
-        value: ${db.USERNAME}
-      - key: DATABASE_PASSWORD
-        scope: RUN_AND_BUILD_TIME
-        value: ${db.PASSWORD}
+        - key: DATABASE_URL
+          scope: RUN_AND_BUILD_TIME
+          value: ${db.DATABASE_URL}
+        - key: DATABASE_HOST
+          scope: RUN_AND_BUILD_TIME
+          value: ${db.HOSTNAME}
+        - key: DATABASE_PORT
+          scope: RUN_AND_BUILD_TIME
+          value: ${db.PORT}
+        - key: DATABASE_NAME
+          scope: RUN_AND_BUILD_TIME
+          value: ${db.DATABASE}
+        - key: DATABASE_USERNAME
+          scope: RUN_AND_BUILD_TIME
+          value: ${db.USERNAME}
+        - key: DATABASE_PASSWORD
+          scope: RUN_AND_BUILD_TIME
+          value: ${db.PASSWORD}
   databases:
     - name: db
