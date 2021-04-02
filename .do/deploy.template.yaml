@@ -1,5 +1,5 @@
 spec:
-  name: blog
+  name: unsplash-clone-strapi
   services:
     - name: strapi
       build_command: NODE_ENV=production npm run build
