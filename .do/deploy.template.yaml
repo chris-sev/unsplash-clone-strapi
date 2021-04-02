@@ -1,7 +1,7 @@
 spec:
   name: unsplash-clone-strapi
   services:
-    - name: web
+    - name: strapi
       build_command: NODE_ENV=production npm run build
       run_command: NODE_ENV=production npm run start
       git:
